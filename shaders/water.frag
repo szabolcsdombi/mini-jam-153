@@ -1,4 +1,3 @@
-
 #version 330 core
 
 layout (std140) uniform Common {
@@ -123,7 +122,7 @@ vec3 from_scene(vec3 v) {
 
 void main() {
     float depth_ref = texture(Depth, v_vertex * 0.5 + 0.5).r;
-    float cut_alpha = depth_ref > 0.99 ? 1.0 : 0.0;
+    float cut_alpha = depth_ref > 0.9999 ? 1.0 : 0.0;
 
     mat4 inv_camera_matrix = inverse(camera_matrix);
     vec4 position_temp = inv_camera_matrix * vec4(v_vertex, -1.0, 1.0);
