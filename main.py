@@ -30,6 +30,7 @@ os.environ['SDL_WINDOWS_DPI_AWARENESS'] = 'permonitorv2'
 
 pygame.init()
 pygame.display.set_mode((1280, 720), flags=pygame.OPENGL | pygame.DOUBLEBUF, vsync=True)
+pygame.display.set_caption('Fishing')
 
 ctx = zengl.context()
 
@@ -406,7 +407,8 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            sys.exit()
+            # sys.exit()
+            os._exit(0)
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             g.keys.add(f'mouse{event.button}')
